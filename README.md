@@ -2,7 +2,7 @@
 
 # Welcome future Ironhackers!
 
-## This is our repository for all the code done in class 💻💪
+## This is our repository for all the code done in class 💻 💪 💕
 
 **Folder Structure** - There will three folders labeled module01, module02 and module03
 <br>
