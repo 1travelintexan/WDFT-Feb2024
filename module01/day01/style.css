@@ -28,3 +28,14 @@ p {
   font-size: 60px;
   color: aliceblue;
 }
+ol {
+  counter-reset: list;
+}
+ol > li {
+  list-style: none;
+  position: relative;
+}
+ol > li:before {
+  counter-increment: list;
+  content: counter(list, lower-alpha) ") ";
+}
