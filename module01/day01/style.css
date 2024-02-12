@@ -1,0 +1,30 @@
+body {
+  background-color: aqua;
+  margin: 0;
+}
+h2 {
+  color: blueviolet;
+}
+p {
+  color: black;
+}
+
+/* target with classes */
+.wave-image {
+  width: 300px;
+}
+
+/* target with ids */
+#our-h1 {
+  color: rgb(255, 255, 255);
+}
+#background-image {
+  color: aliceblue;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-image: url("https://media.istockphoto.com/id/1423843571/photo/blue-ocean-wave.jpg?s=612x612&w=is&k=20&c=U7_DDItxR-rzimSV7UouKZn3X28KJFTtCV7qsy8E-lY=");
+}
+#best-name {
+  font-size: 60px;
+  color: aliceblue;
+}
