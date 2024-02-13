@@ -1,0 +1,57 @@
+/* Different types of units */
+/* px, rem, em, vw, vh */
+
+body {
+  background-color: rgb(82, 82, 82);
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav {
+  background-color: rgb(4, 86, 86);
+  margin: 0;
+  width: 100vw;
+  /* creates a box */
+  display: flex;
+  /* vertically centered */
+  align-items: center;
+  /* horizontally centered */
+  justify-content: space-between;
+}
+nav div {
+  margin-right: 40px;
+}
+#logo {
+  margin-left: 40px;
+}
+
+.dog-image {
+  height: 300px;
+  align-self: auto;
+}
+
+/* ***************************************** */
+/* this media query is for tablets */
+@media (min-width: 400px) and (max-width: 600px) {
+  nav {
+    background-color: blue;
+  }
+  .dog-image {
+    height: 450px;
+  }
+}
+
+/* ************************************************ */
+/* this media query is for a pc (big screen) */
+@media (min-width: 1000px) {
+  nav {
+    background-color: rgb(183, 57, 15);
+  }
+  .dog-image {
+    height: 600px;
+    border-radius: 2rem;
+  }
+}
