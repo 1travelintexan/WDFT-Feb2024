@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 nav {
   background-color: rgb(4, 86, 86);
@@ -29,8 +30,8 @@ nav div {
 }
 
 .dog-image {
-  height: 300px;
-  align-self: auto;
+  height: 200px;
+  align-self: center;
 }
 
 /* ***************************************** */
@@ -51,7 +52,7 @@ nav div {
     background-color: rgb(183, 57, 15);
   }
   .dog-image {
-    height: 600px;
+    height: 6 300px;
     border-radius: 2rem;
   }
 }
