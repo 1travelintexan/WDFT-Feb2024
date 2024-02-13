@@ -29,8 +29,13 @@ nav div {
   margin-left: 40px;
 }
 
+.dog-image-container {
+  display: flex;
+}
+
 .dog-image {
   height: 200px;
+  margin: 20px;
   align-self: center;
 }
 
@@ -44,7 +49,7 @@ nav div {
     height: 450px;
   }
 }
-
+/* This is comment for the test push */
 /* ************************************************ */
 /* this media query is for a pc (big screen) */
 @media (min-width: 1000px) {
