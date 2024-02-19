@@ -46,19 +46,74 @@
 // }
 
 // Your code here:
-const booksArray = [1, 2, 3, 4, 5];
+const booksArray = [
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: `English`,
+      description: `One of Hemingway's most famous works, it tells the story of Santiago...`,
+    },
+  },
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: `English`,
+      description: `One of Hemingway's most famous works, it tells the story of Santiago...`,
+    },
+  },
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: `English`,
+      description: `One of Hemingway's most famous works, it tells the story of Santiago...`,
+    },
+  },
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: `English`,
+      description: `One of Hemingway's most famous works, it tells the story of Santiago...`,
+    },
+  },
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: `English`,
+      description: `One of Hemingway's most famous works, it tells the story of Santiago...`,
+    },
+  },
+];
 
 // Iteration 2 | Book Details
-function getBookDetails() {
-  // Your code here:
+function getBookDetails(book) {
+  return `${book.title} - ${book.author} - ${book.pages} pages`;
 }
 
 // Iteration 3 | Delete Language
-// Your code here:
+booksArray.forEach((book) => {
+  delete book.details.language;
+});
+console.log("Our books array", booksArray);
 
 // Iteration 4 | Estimated Reading Time
 // Your code here:
-
+function addReadingTime(bookObj) {
+  const readingTime = Math.ceil((bookObj.pages * 500) / 90);
+  bookObj.readingTime = readingTime;
+}
+booksArray.forEach((bookObj) => {
+  addReadingTime(bookObj);
+});
 // Bonus: Iteration 5 | Books Dictionary
 
 /* The `dictionary` is an object containing books grouped by author. 
@@ -82,9 +137,22 @@ const dictionary = {
   ],
 };
 
-function booksByAuthor() {
-  // Your code here:
+function booksByAuthor(dict) {
+  const booksArr = [];
+  for (let author in dict) {
+    for (let book of dict[author]) {
+      let bookObject = {
+        title: book[0],
+        pages: book[1],
+        author: author,
+      };
+      booksArr.push(bookObject);
+    }
+  }
+  return booksArr;
 }
+
+let allBooks = booksByAuthor(dictionary);
 
 // Bonus: Iteration 6 | Average Page Count
 function averagePageCount() {
