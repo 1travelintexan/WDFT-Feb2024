@@ -1,7 +1,7 @@
 // Iteration 1: Names and Input
-const hacker1 = "Joahua";
+const hacker1 = "Joshua";
 console.log(`The driver's name is ${hacker1}`);
-const hacker2 = "Joahua";
+const hacker2 = "Raul";
 console.log(`The navigator's name is ${hacker2}`);
 const longest = "";
 // Iteration 2: Conditionals
@@ -37,6 +37,7 @@ for (let i = hacker2.length - 1; i >= 0; i--) {
 console.log(backwardsName);
 
 //lexigraphical order
+//With Locale Compare
 let compare = hacker1.localeCompare(hacker2);
 console.log("compare", compare);
 if (compare < 0) {
@@ -44,5 +45,17 @@ if (compare < 0) {
 } else if (compare > 0) {
   console.log("Yo, the navigator goes first, definitely.");
 } else {
+  console.log("What?! You both have the same name?");
+}
+//lexigraphical order
+//With for loop
+for(let i=0; i<longest.length-1; i++){
+  if(hacker1[i] > hacker2[i]){
+    console.log("Drivers name goes first");
+  }else if(hacker1[i] < hacker2[i]){
+    console.log("Yo, the navigator goes first, definitely.");
+  }
+}
+if(hacker1 === hacker2) {
   console.log("What?! You both have the same name?");
 }

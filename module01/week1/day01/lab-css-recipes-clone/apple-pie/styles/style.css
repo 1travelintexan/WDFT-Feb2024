@@ -1,0 +1,68 @@
+/* CSS RESET - do not remove */
+/* Reset default browser styles and provide a consistent starting point */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+/*  Set the font */
+body {
+  font-family: "Helvetica", sans-serif;
+}
+
+/* STYLES */
+/* Write your CSS below */
+body {
+  background-color: rgb(128, 128, 128);
+}
+.container {
+  background-image: url("../images/apple-pie.jpg");
+  height: 500px;
+  background-size: cover;
+}
+.container h1 {
+  color: white;
+  text-align: center;
+  padding: 200px;
+  font-size: 4rem;
+}
+/* camel case => bodyDiv
+pascal case => BodyDiv
+kebab case => body-div
+snake case => body_div */
+.body-div {
+  padding: 50px 120px;
+}
+
+ol {
+  counter-reset: list;
+}
+ol > li {
+  list-style: none;
+  position: relative;
+}
+ol > li:before {
+  counter-increment: list;
+  content: counter(list) ") ";
+}
