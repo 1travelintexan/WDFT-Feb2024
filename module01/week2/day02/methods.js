@@ -1,18 +1,12 @@
 //******************* .map() *************/
-//what you do to one element, gets done to all of them
-
-// multiplying all numbers by three
-const numsArray = [1, 2, 3, 4, 5];
-const numsArrayTimesThree = numsArray.map(
-  // .map has three parameters, the current element, current index and the whole array
-  (currentNumber, currentIndex, wholeArray) => {
-    return currentNumber * 3;
-  }
-);
-// console.log("numsArray", numsArray);
-// console.log("times three array", numsArrayTimesThree);
-
-//Grab all user names from an array of users
+const numbersArray = [1, 2, 3, 4, 5];
+const newNumsArray = numbersArray.map((currentElement) => {
+  //   console.log("current element", currentElement, "with the index of", index);
+  return currentElement * 3;
+});
+//logging the new nums array, after the .map method
+// console.log(numbersArray);
+// console.log(newNumsArray);
 const users = [
   { name: "Ragnar", age: 3, person: false },
   { name: "Timo", age: 9, person: false },
@@ -21,14 +15,14 @@ const users = [
   { name: "Gloria", age: 21, person: true },
   { name: "Michael", age: 19, person: true },
 ];
-const maybeFriends = users.map((user) => {
-  //   console.log("inside the map", user);
-  //this will return undefined for anyone who is not a person
-  //   if (user.person === true) {
-  //     return user.name;
-  //   }
+
+const allUsersNames = users.map((user) => {
   return user.name;
 });
+//oneliner version for .map
+const oneLinerOfNames = users.map((e) => e.name);
+console.log("all names", oneLinerOfNames);
+
 // console.log("maybe friends", maybeFriends);
 
 //******************************.filter()****************/
@@ -62,7 +56,7 @@ const cart = [
   { title: "dog jacket", price: 23 },
 ];
 //*******************.sort() *******************/
-console.log("before reverse", cart);
+// console.log("before reverse", cart);
 //sorting a complex array with objects
 //sorting by the price ascending and if the price is the same then we sort alphabetically by the title
 // cart.sort((a, b) => {
@@ -102,7 +96,7 @@ console.log("before reverse", cart);
 
 //****************************.reverse()********************* */
 cart.reverse();
-console.log("after reverse", cart);
+// console.log("after reverse", cart);
 //.reduce takes two parameters, one is the callback function and the other is the initial value of the accumulator
 // const total = reduceArray.reduce((accumulator, currentElement) => {
 //   console.log("inside the reduce, acc", accumulator);
