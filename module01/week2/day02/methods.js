@@ -55,6 +55,22 @@ const cart = [
   { title: "toy", price: 5 },
   { title: "dog jacket", price: 23 },
 ];
+//.reduce takes two parameters, one is the callback function and the other is the initial value of the accumulator
+const total = reduceArray.reduce((accumulator, currentElement) => {
+  console.log("inside the reduce, acc", accumulator);
+  console.log("inside the reduce, current element", currentElement);
+  return accumulator + currentElement;
+}, 0);
+
+// sum all the prices using .reduce and then apply a 10% discount
+const newTotal = cart.reduce((acc, currentElement) => {
+  if (currentElement.price) {
+    return acc + Number(currentElement.price);
+  } else {
+    return acc;
+  }
+}, 0);
+console.log("new total", newTotal);
 //*******************.sort() *******************/
 // console.log("before reverse", cart);
 //sorting a complex array with objects
@@ -97,26 +113,6 @@ const cart = [
 //****************************.reverse()********************* */
 cart.reverse();
 // console.log("after reverse", cart);
-//.reduce takes two parameters, one is the callback function and the other is the initial value of the accumulator
-// const total = reduceArray.reduce((accumulator, currentElement) => {
-//   console.log("inside the reduce, acc", accumulator);
-//   console.log("inside the reduce, current element", currentElement);
-//   return accumulator + currentElement;
-// },0 );
-// const total = cart.reduce((accumulator, currentElement) => {
-//   console.log("inside the reduce, acc", accumulator);
-//   console.log("inside the reduce, current element", currentElement);
-//   return accumulator + currentElement.price;
-// }, 0);
-// sum all the prices using .reduce and then apply a 10% discount
-// const newTotal = cart.reduce((acc, currentElement) => {
-//     if (currentElement.price) {
-//       return acc + Number(currentElement.price);
-//     } else {
-//       return acc;
-//     }
-//   }, 0);
-//   console.log("new total", newTotal);
 
 //************************making a DEEP copy of an array ************/
 const deepCopyOfCart = JSON.parse(JSON.stringify(cart));
