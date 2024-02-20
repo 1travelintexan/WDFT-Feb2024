@@ -123,3 +123,6 @@ console.log("after reverse", cart);
 //     }
 //   }, 0);
 //   console.log("new total", newTotal);
+
+//************************making a DEEP copy of an array ************/
+const deepCopyOfCart = JSON.parse(JSON.stringify(cart));
