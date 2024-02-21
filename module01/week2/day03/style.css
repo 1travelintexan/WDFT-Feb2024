@@ -1,0 +1,9 @@
+body {
+  background-color: aqua;
+}
+.some-cool-class {
+  color: rgb(66, 108, 4);
+}
+.another-cool-class {
+  font-size: 50px;
+}

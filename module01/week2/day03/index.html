@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- linking example of css to an html -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>DOM Day!</title>
+    <!-- <style>
+      /* you can write css here */
+      body {
+        background-color: blueviolet;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div id="splash-screen">
+      <h1 id="heading">Hello World</h1>
+      <label>
+        player name:
+        <input type="text" placeholder="Name" id="player-input" />
+      </label>
+      <button id="start-game">Start Game</button>
+    </div>
+    <div id="game-screen">
+      <h2 class="h2">This is our game screen</h2>
+    </div>
+    <div id="gameover-screen">
+      <p>this is our game over page</p>
+    </div>
+    <!-- linking a js file **always at the bottom** -->
+    <script src="/index.js">
+      //you can write javascript here
+    </script>
+  </body>
+</html>
