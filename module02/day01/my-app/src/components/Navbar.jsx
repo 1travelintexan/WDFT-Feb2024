@@ -3,10 +3,10 @@ import LogoComponent from "./Logo";
 const Navbar = ({ names, food, country, logoImage, text }) => {
   console.log("the props we sent");
   //First you could just write props
-  //Second you could destructor the props on a new line
+  //Second you could destructure the props on a new line
   //ex
   // const { names, food, country } = props;
-  // console.log("names destructored", names);
+  // console.log("names destructured", names);
   //Third and best in my opinion, destructor straight in the ( ) of the component
   return (
     // this is a react Fragment, its to make less divs on your page
