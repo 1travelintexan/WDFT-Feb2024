@@ -14,7 +14,7 @@ function App() {
   //array state for the list and keys example
   const [petsState, setPetsState] = useState([
     { name: "Luna", id: 1, age: 8, animal: "Cat" },
-    { name: "Ragnar", id: 0, age: 3, animal: "Dog" },
+    { name: "Ragnar", id: 0, age: 3, animal: "Fish" },
     { name: "Timo", id: 2, age: 9, animal: "Dog" },
   ]);
 
