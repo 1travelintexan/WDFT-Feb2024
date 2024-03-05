@@ -26,6 +26,7 @@ function App() {
   };
   return (
     <>
+      {/* pass the array of pets and the setter to the PetsPage component */}
       <PetsPage pets={petsState} setPetsState={setPetsState} />
       {/* To get all the info from the parent, we send them as props */}
       {/* THIS IS SENDING PROPS */}
