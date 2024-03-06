@@ -1,0 +1,18 @@
+.navbar {
+  background-color: rgb(1, 108, 108);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.active {
+  background-color: rgb(40, 40, 40);
+  font-size: 2rem;
+  color: white;
+}
+.pet-card {
+  border: 2px dashed white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 2rem;
+}
