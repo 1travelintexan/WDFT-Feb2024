@@ -10,6 +10,17 @@ function App() {
     { name: "Timo", owner: "Michael", age: 8, id: 2 },
   ];
   const [pets, setPets] = useState(petArray);
+
+  function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      console.log(JSON.parse(this.responseText).results);
+    };
+    xhttp.open("GET", "https://rickandmortyapi.com/api/character");
+    xhttp.send();
+  }
+  loadDoc();
+
   return (
     <>
       <h1> Controlled Components</h1>
