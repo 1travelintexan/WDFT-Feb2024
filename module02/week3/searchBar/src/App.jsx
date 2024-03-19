@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { SearchBar } from "./components/SearchBar";
+import { Route, Routes } from "react-router-dom";
+import { CharacterList } from "./components/CharacterList";
+import { About } from "./components/About";
+import { OutletComponent } from "./components/OutletComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,21 +29,32 @@ function App() {
         setStatus={setStatus}
       />
 
-      {chars &&
-        chars
-          .filter((character) => {
-            if (status && character.status === status) {
-              return true;
-            }
-          })
-          .filter((currentChar) => {
-            if (
-              currentChar.name.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return true;
-            }
-          })
-          .map((e) => <h2 key={e.id}>{e.name}</h2>)}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <OutletComponent>
+              <CharacterList
+                chars={chars}
+                status={status}
+                searchTerm={searchTerm}
+              />
+            </OutletComponent>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <OutletComponent>
+              <About />
+            </OutletComponent>
+          }
+        />
+        <Route
+          path="/personal"
+          element={<OutletComponent>{/* <Personal /> */}</OutletComponent>}
+        />
+      </Routes>
     </>
   );
 }
