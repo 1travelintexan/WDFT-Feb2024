@@ -21,6 +21,7 @@ mongoose
 // - `morgan` logger to log all incoming requests
 app.use(morgan("dev"));
 app.use(express.static("public"));
+//this allows us to receive a body in a post route
 app.use(express.json());
 
 //create a pet in the DB
@@ -34,7 +35,7 @@ const Luna = { name: "Luna", age: 8, breed: "cat" };
 const Timo = { name: "Timo", age: 9, breed: "dog" };
 const arrayOfPets = [Ragnar, Luna, Timo];
 
-//user example
+// //user example
 // UserModel.create({ name: "Joshua" })
 //   .then((createdUser) => {
 //     console.log("The user was created", createdUser);
@@ -51,17 +52,17 @@ const insertManyPets = async () => {
 };
 // insertManyPets();
 // .create method creates a document inside the DB based on the model
-// PetModel.create(Luna)
-//   .then((createdPet) => {
-//     console.log("The pet was created", createdPet);
-//   })
-//   .catch((err) => console.log(err));
+PetModel.create(Luna)
+  .then((createdPet) => {
+    console.log("The pet was created", createdPet);
+  })
+  .catch((err) => console.log(err));
 //**************find a pet in the DB with the .find method************
-// PetModel.find({ breed: "dog" })
-//   .then((foundDogs) => {
-//     console.log("the dogs that were found are ", foundDogs);
-//   })
-//   .catch((err) => console.log(err));
+PetModel.find({ breed: "dog" })
+  .then((foundDogs) => {
+    console.log("the dogs that were found are ", foundDogs);
+  })
+  .catch((err) => console.log(err));
 // ******************.findOne method***************
 // PetModel.findOne({ name: "Timo" })
 //   .then((foundDog) => {
@@ -77,16 +78,16 @@ PetModel.findById("6603fef9773163f239ed5a35")
   .catch((err) => console.log(err));
 //find and update a pet
 //************findbyIdandUpdate ***************/
-// PetModel.findByIdAndUpdate(
-//   "6603ed2bef0d428e8f7a6405",
-//   { name: "Loki", age: 10000 },
-//   //this line returns the new information, by default it will the return the old info
-//   { new: true }
-// )
-//   .then((updatedDog) => {
-//     console.log("updated by the Id", updatedDog);
-//   })
-//   .catch((err) => console.log(err));
+PetModel.findByIdAndUpdate(
+  "6603ed2bef0d428e8f7a6405",
+  { name: "Loki", age: 10000 },
+  //this line returns the new information, by default it will the return the old info
+  { new: true }
+)
+  .then((updatedDog) => {
+    console.log("updated by the Id", updatedDog);
+  })
+  .catch((err) => console.log(err));
 
 //**********update one method*********** */
 // PetModel.updateOne({ name: "Luna" }, { age: 100000 })
