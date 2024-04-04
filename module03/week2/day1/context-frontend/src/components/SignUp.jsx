@@ -12,11 +12,20 @@ export const SignUp = () => {
   //this is the onSubmit function
   const handleSignup = async (event) => {
     event.preventDefault();
-    const userToCreate = { userName, email, password };
+
+    //this is where we create the form data and add all the properties to it
+    const myFormData = new FormData();
+    const image = event.target.image.files[0];
+    myFormData.append("imageUrl", image);
+    myFormData.append("userName", userName);
+    myFormData.append("email", email);
+    myFormData.append("password", password);
+
+    // const userToCreate = { userName, email, password };
     try {
       const response = await axios.post(
         "http://localhost:5005/auth/signup",
-        userToCreate
+        myFormData
       );
       console.log("you created a user", response.data);
       //only if you create the new user, then you navigate to the login page
@@ -62,6 +71,10 @@ export const SignUp = () => {
               setPassword(e.target.value);
             }}
           />
+        </label>
+        <label>
+          Profile Image:
+          <input type="file" name="image" />
         </label>
         <button>Sign Up</button>
       </form>
