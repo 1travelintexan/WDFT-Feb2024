@@ -3,15 +3,20 @@ const UserModel = require("../models/User.model");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { isAuthenticated } = require("../middleware/jwt.middleware");
+const uploader = require("../middleware/cloudinary.config.js");
 //Variable above ^^^^^^
 
 //First, we need to signup a user
-router.post("/signup", async (req, res) => {
+router.post("/signup", uploader.single("imageUrl"), async (req, res, next) => {
+  // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
+  console.log("hello!!!! file is: ", req.file);
   const { userName, email, password } = req.body;
   //check the length of the password and that there is all the fields and password strength
   // Check if the email or password or name is provided as an empty string
   if (email === "" || password === "" || userName === "") {
-    res.status(400).json({ message: "Provide email, password and name" });
+    res
+      .status(400)
+      .json({ errorMessage: "Provide email, password and name please" });
     return;
   }
 
@@ -23,14 +28,14 @@ router.post("/signup", async (req, res) => {
   }
 
   // Use regex to validate the password format
-  const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!passwordRegex.test(password)) {
-    res.status(400).json({
-      message:
-        "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.",
-    });
-    return;
-  }
+  // const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  // if (!passwordRegex.test(password)) {
+  //   res.status(400).json({
+  //     message:
+  //       "Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.",
+  //   });
+  //   return;
+  // }
 
   try {
     const foundUser = await UserModel.findOne({ email });
@@ -43,11 +48,13 @@ router.post("/signup", async (req, res) => {
       const hashedUser = {
         ...req.body,
         password: hashedPassword,
+        imageUrl: req.file.path,
       };
 
       const myNewUser = await UserModel.create(hashedUser);
       console.log("user created", myNewUser);
-      res.status(201).json(myNewUser);
+      const { _id, userName, email } = myNewUser;
+      res.status(201).json({ _id, userName, email });
     }
   } catch (err) {
     console.log("error signing up", err);
@@ -66,7 +73,7 @@ router.post("/login", async (req, res) => {
     const foundUser = await UserModel.findOne({ email });
     if (!foundUser) {
       res.status(400).json({
-        message: "No user with that email",
+        errorMessage: "No user with that email",
       });
     } else {
       //if there is a user with that email, then we need to compare the passwords
@@ -76,11 +83,11 @@ router.post("/login", async (req, res) => {
       );
       if (!doesPasswordMatch) {
         res.status(400).json({
-          message: "Incorrect password",
+          errorMessage: "Incorrect password",
         });
         //This else is for when the user exists and the password matches
       } else {
-        //****************JWT token******************/
+        //****************creating JWT token!!!!!******************/
         const { _id, userName } = foundUser;
         const payload = { _id, userName };
         //this is where we create a token
